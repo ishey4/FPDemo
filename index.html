@@ -1,0 +1,90 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Functional Demo</title>
+    <meta name="description" content="Functional">
+    <meta name="Inbar" content="???">
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div>
+        <h1>Purpose</h1>
+        <div>This demo will show a few things</div>
+        <ul>
+            <li>How functional vs OO works</li>
+            <li>How expensive renders can get</li>
+            <li>How rendering every little change as opposed to all changes effects processing</li>
+        </ul>
+        <h1>Usage / Setup</h1>
+        <div>
+            This page generates counters on the page, and update them.
+        <ul>
+            <li>Counters - how many counters to render</li>
+            <li>Render Type - will each counter render itself, or will render happen on the next event loop</li>
+            <li>Duration - how long the counters will count for</li>
+            <li>Wait - how long each counter will wait before next count</li>
+            <li>Go - Spawns counters.</li>
+        </ul>
+        </div>
+        <h1>Settings</h1>
+        <table>
+            <tr>
+                <th>Counters</th>
+                <th>Render type</th>
+                <th>Duration(s)</th>
+                <th>Wait (ms)</th>
+                <th>Go</th>
+            </tr>
+            <tr>
+                <td><input id="qty" type="number" value="5000" /></td>
+                <td><label><input id="isGlobal" type="checkbox" /> Global </label></td>
+                <td><input id="duration" type="number" value ="5" /></td>
+                <td><input id="countSpeed" type="number" value ="0" /></td>
+                <td><button id="goButton" onclick="renderTimers()">Go</button></td>
+            </tr>
+        </table>
+        <h1>Render Stats</h1>
+        <table>
+            <tr>
+                <th>Style</th>
+                <th>Processing Time (ms)</th>
+                <th>Renders</th>
+                <th>Total Count</th>
+                <th>Time/Render(ms)</th>
+                <th>Renders/Count</th>
+            </tr>
+            <tr id='globalUpdateRenders'>
+                <td class='style'>globalUpdateRenders</td>
+                <td class='totalTime'>0</td>
+                <td class='renderCount'>0</td>
+                <td class='counted'>0</td>
+                <td class='averageRenderTime'>0</td>
+                <td class='rendersPerCount'>0</td>
+            </tr>
+            <tr id='selfUpdateRenders'>
+                <td class='style'>selfUpdateRenders</td>
+                <td class='totalTime'>0</td>
+                <td class='renderCount'>0</td>
+                <td class='counted'>0</td>
+                <td class='averageRenderTime'>0</td>
+                <td class='rendersPerCount'>0</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <h1>Counters</h1>
+
+    <div id="target">
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
